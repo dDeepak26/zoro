@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>cicada</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            color: #fff; /* Set text color */
+        }
+
+        .video-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 2em;
+            /* Add any other styles for your content */
+        }
+
+        #passwordForm {
+            z-index: 1; /* Ensure form is above the background */
+        }
+
+        input {
+            padding: 8px; /* Add padding to the input for better visibility */
+            font-family: 'arial'; /* Change font-family for consistency */
+            letter-spacing: 2px; /* Add letter-spacing for better visibility */
+            background-color: #444; /* Set background color */
+            color: #fff; /* Set text color */
+            border: 1px solid #888; /* Add a border for better visibility */
+        }
+
+        input:focus {
+            outline: none; /* Remove default focus outline */
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Add a subtle box-shadow on focus */
+        }
+
+        #password {
+            -webkit-text-security: disc; /* Set text security to display dots like a password input */
+            text-security: disc;
+        }
+
+        button {
+            margin-top: 10px; /* Add some margin to the button */
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="./zoro.mp4" type="video/mp4"> <!-- Replace "your_video.mp4" with your actual video file -->
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="content">
+        <form id="passwordForm">
+            <label for="password">Enter Password:</label>
+            <input type="text" id="password" name="password" autocomplete="off" required>
+            <button type="button" onclick="checkPassword()">Submit</button>
+        </form>
+    </div>
+    <script>
+        function checkPassword() {
+            // Get the entered text
+            var enteredText = document.getElementById("password").value;
+
+            // Replace "adrishyasaya" with the actual text you want to check against
+            var actualText = "adrishyasaya";
+
+            // Check if the entered text matches the actual text
+            if (enteredText === actualText) {
+                window.open("win.html",'_blank');
+                // Here, you can proceed with further actions, such as granting access or processing the form.
+            } else {
+                alert("Try again!");
+            }
+        }
+    </script>
+    
+</body>
+</html>
